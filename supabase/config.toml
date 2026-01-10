@@ -1,0 +1,8 @@
+project_id = "maklcwmdganrmgjagacv"
+
+[api]
+enabled = true
+port = 54321
+
+[functions.mongodb-api]
+verify_jwt = false
