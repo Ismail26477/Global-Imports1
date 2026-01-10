@@ -41,7 +41,7 @@ const Settings = () => {
 
   // Store Configuration
   const [storeSettings, setStoreSettings] = useState({
-    storeName: "Global-Imports",
+    storeName: "Global Imports",
     storeEmail: "contact@globalimports.com",
     storePhone: "+91 9876543210",
     address: "123 Tech Street, Electronics Hub, Bangalore - 560001",
