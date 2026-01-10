@@ -1,41 +1,31 @@
-import { useState } from "react";
-import { DashboardLayout } from "@/layouts/DashboardLayout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { 
-  User, 
-  Bell, 
-  Store, 
-  Shield, 
-  Palette, 
-  Globe, 
-  Mail,
-  Smartphone,
-  CreditCard,
-  Truck,
-  Save
-} from "lucide-react";
+"use client"
+
+import { useState } from "react"
+import { DashboardLayout } from "@/layouts/DashboardLayout"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Switch } from "@/components/ui/switch"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import { useToast } from "@/hooks/use-toast"
+import { User, Bell, Store, Shield, Palette, Mail, Smartphone, CreditCard, Truck, Save } from "lucide-react"
 
 const Settings = () => {
-  const { toast } = useToast();
-  const [loading, setLoading] = useState(false);
+  const { toast } = useToast()
+  const [loading, setLoading] = useState(false)
 
   // User Preferences
   const [userSettings, setUserSettings] = useState({
     name: "Admin User",
-    email: "admin@arcomputers.com",
+    email: "admin@globalimports.com",
     phone: "+91 9876543210",
     language: "en",
     timezone: "Asia/Kolkata",
     theme: "light",
-  });
+  })
 
   // Notification Settings
   const [notifications, setNotifications] = useState({
@@ -47,39 +37,37 @@ const Settings = () => {
     pushReviews: false,
     smsOrders: false,
     smsDelivery: true,
-  });
+  })
 
   // Store Configuration
   const [storeSettings, setStoreSettings] = useState({
-    storeName: "AR Computers",
-    storeEmail: "contact@arcomputers.com",
+    storeName: "Global-Imports",
+    storeEmail: "contact@globalimports.com",
     storePhone: "+91 9876543210",
     address: "123 Tech Street, Electronics Hub, Bangalore - 560001",
     currency: "INR",
     taxRate: "18",
     lowStockThreshold: "10",
-    orderPrefix: "ARC",
-  });
+    orderPrefix: "GI",
+  })
 
   const handleSave = (section: string) => {
-    setLoading(true);
+    setLoading(true)
     setTimeout(() => {
-      setLoading(false);
+      setLoading(false)
       toast({
         title: "Settings saved",
         description: `${section} settings have been updated successfully.`,
-      });
-    }, 500);
-  };
+      })
+    }, 500)
+  }
 
   return (
     <DashboardLayout>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold text-foreground">Settings</h1>
-          <p className="text-muted-foreground mt-1">
-            Manage your account settings and store preferences
-          </p>
+          <p className="text-muted-foreground mt-1">Manage your account settings and store preferences</p>
         </div>
 
         <Tabs defaultValue="profile" className="space-y-6">
@@ -110,9 +98,7 @@ const Settings = () => {
                   <User className="h-5 w-5" />
                   Personal Information
                 </CardTitle>
-                <CardDescription>
-                  Update your personal details and preferences
-                </CardDescription>
+                <CardDescription>Update your personal details and preferences</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -172,9 +158,7 @@ const Settings = () => {
                   <Palette className="h-5 w-5" />
                   Appearance
                 </CardTitle>
-                <CardDescription>
-                  Customize how the dashboard looks
-                </CardDescription>
+                <CardDescription>Customize how the dashboard looks</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -224,17 +208,13 @@ const Settings = () => {
                   <Mail className="h-5 w-5" />
                   Email Notifications
                 </CardTitle>
-                <CardDescription>
-                  Configure which emails you'd like to receive
-                </CardDescription>
+                <CardDescription>Configure which emails you'd like to receive</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Order Updates</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Receive emails for new orders and status changes
-                    </p>
+                    <p className="text-sm text-muted-foreground">Receive emails for new orders and status changes</p>
                   </div>
                   <Switch
                     checked={notifications.emailOrders}
@@ -244,9 +224,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Marketing Updates</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Receive promotional emails and offers
-                    </p>
+                    <p className="text-sm text-muted-foreground">Receive promotional emails and offers</p>
                   </div>
                   <Switch
                     checked={notifications.emailMarketing}
@@ -256,9 +234,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Weekly Reports</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Get weekly sales and performance reports
-                    </p>
+                    <p className="text-sm text-muted-foreground">Get weekly sales and performance reports</p>
                   </div>
                   <Switch
                     checked={notifications.emailReports}
@@ -274,17 +250,13 @@ const Settings = () => {
                   <Bell className="h-5 w-5" />
                   Push Notifications
                 </CardTitle>
-                <CardDescription>
-                  Configure browser and app push notifications
-                </CardDescription>
+                <CardDescription>Configure browser and app push notifications</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>New Orders</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Get notified instantly when new orders come in
-                    </p>
+                    <p className="text-sm text-muted-foreground">Get notified instantly when new orders come in</p>
                   </div>
                   <Switch
                     checked={notifications.pushOrders}
@@ -294,9 +266,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Low Stock Alerts</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Get notified when products are running low
-                    </p>
+                    <p className="text-sm text-muted-foreground">Get notified when products are running low</p>
                   </div>
                   <Switch
                     checked={notifications.pushLowStock}
@@ -306,9 +276,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>New Reviews</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Get notified when customers leave reviews
-                    </p>
+                    <p className="text-sm text-muted-foreground">Get notified when customers leave reviews</p>
                   </div>
                   <Switch
                     checked={notifications.pushReviews}
@@ -328,17 +296,13 @@ const Settings = () => {
                   <Smartphone className="h-5 w-5" />
                   SMS Notifications
                 </CardTitle>
-                <CardDescription>
-                  Configure SMS alerts for important updates
-                </CardDescription>
+                <CardDescription>Configure SMS alerts for important updates</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Order Confirmations</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Send SMS when orders are placed
-                    </p>
+                    <p className="text-sm text-muted-foreground">Send SMS when orders are placed</p>
                   </div>
                   <Switch
                     checked={notifications.smsOrders}
@@ -348,9 +312,7 @@ const Settings = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Delivery Updates</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Send SMS for shipping and delivery updates
-                    </p>
+                    <p className="text-sm text-muted-foreground">Send SMS for shipping and delivery updates</p>
                   </div>
                   <Switch
                     checked={notifications.smsDelivery}
@@ -369,9 +331,7 @@ const Settings = () => {
                   <Store className="h-5 w-5" />
                   Store Information
                 </CardTitle>
-                <CardDescription>
-                  Basic information about your store
-                </CardDescription>
+                <CardDescription>Basic information about your store</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -406,7 +366,7 @@ const Settings = () => {
                       id="orderPrefix"
                       value={storeSettings.orderPrefix}
                       onChange={(e) => setStoreSettings({ ...storeSettings, orderPrefix: e.target.value })}
-                      placeholder="e.g., ARC"
+                      placeholder="e.g., GI"
                     />
                   </div>
                 </div>
@@ -432,9 +392,7 @@ const Settings = () => {
                   <CreditCard className="h-5 w-5" />
                   Payment & Tax
                 </CardTitle>
-                <CardDescription>
-                  Configure payment and tax settings
-                </CardDescription>
+                <CardDescription>Configure payment and tax settings</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -474,9 +432,7 @@ const Settings = () => {
                   <Truck className="h-5 w-5" />
                   Inventory Settings
                 </CardTitle>
-                <CardDescription>
-                  Configure inventory management preferences
-                </CardDescription>
+                <CardDescription>Configure inventory management preferences</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -507,9 +463,7 @@ const Settings = () => {
                   <Shield className="h-5 w-5" />
                   Password
                 </CardTitle>
-                <CardDescription>
-                  Update your password to keep your account secure
-                </CardDescription>
+                <CardDescription>Update your password to keep your account secure</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
@@ -533,17 +487,13 @@ const Settings = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Two-Factor Authentication</CardTitle>
-                <CardDescription>
-                  Add an extra layer of security to your account
-                </CardDescription>
+                <CardDescription>Add an extra layer of security to your account</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Enable 2FA</Label>
-                    <p className="text-sm text-muted-foreground">
-                      Require a verification code when signing in
-                    </p>
+                    <p className="text-sm text-muted-foreground">Require a verification code when signing in</p>
                   </div>
                   <Switch />
                 </div>
@@ -553,21 +503,17 @@ const Settings = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Active Sessions</CardTitle>
-                <CardDescription>
-                  Manage devices where you're currently logged in
-                </CardDescription>
+                <CardDescription>Manage devices where you're currently logged in</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
                     <p className="font-medium">Current Session</p>
-                    <p className="text-sm text-muted-foreground">
-                      Chrome on Windows • Bangalore, India
-                    </p>
+                    <p className="text-sm text-muted-foreground">Chrome on Windows • Bangalore, India</p>
                   </div>
                   <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Active</span>
                 </div>
-                <Button variant="outline" className="w-full">
+                <Button variant="outline" className="w-full bg-transparent">
                   Sign Out All Other Sessions
                 </Button>
               </CardContent>
@@ -576,7 +522,7 @@ const Settings = () => {
         </Tabs>
       </div>
     </DashboardLayout>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings
