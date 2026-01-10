@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AR Computers Dashboard Design System */
+/* Global-Imports Dashboard Design System */
 
 @layer base {
   :root {
