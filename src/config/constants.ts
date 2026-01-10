@@ -1,7 +1,7 @@
 export const APP_CONFIG = {
-  name: "AR Insights Hub",
-  shortName: "AR Hub",
-  sidebarName: "AR Computers",
-  description: "AR Computers Dashboard - Smart Hub",
-  tagline: "Welcome back! Here's what's happening with AR Computers today.",
+  name: "Global Imports",
+  shortName: "GlobalImports",
+  sidebarName: "Global Imports",
+  description: "Global Imports Dashboard - Smart Hub",
+  tagline: "Welcome back! Here's what's happening with Global Imports today.",
 }
