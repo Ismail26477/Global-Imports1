@@ -1,6 +1,6 @@
 export const APP_CONFIG = {
   name: "Global Imports",
-  shortName: "GlobalImports",
+  shortName: "Global Imports",
   sidebarName: "Global Imports",
   description: "Global Imports Dashboard - Smart Hub",
   tagline: "Welcome back! Here's what's happening with Global Imports today.",
